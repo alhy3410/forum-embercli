@@ -1,0 +1,15 @@
+<h2>Comment on the Question:</h2>
+
+<form>
+  <div class="form-group">
+    <label for="author">Answered By:</label>
+    {{input id="author" class="form-control" value=author}}
+  </div>
+
+  <div class="form-group">
+    <label for="title">Comment:</label>
+    {{textarea id="title" class="form-control" value=title}}
+  </div>
+
+  <button class="btn btn-primary" {{action 'save'}}>Comment</button>
+</form>

@@ -1,0 +1,31 @@
+<div id="individualComment">
+  Answered By: {{model.author}}<br>
+  Title: {{model.title}}<br>
+  Date: {{current-date}}
+</div>
+
+{{#if isEditing}}
+<form>
+
+  <div class="form-group">
+    <label for="author">Answered By:</label>
+    {{input id="author" class="form-control" value=author}}
+  </div>
+
+  <div class="form-group">
+    <label for="title">Comment:</label>
+    {{textarea id="title" class="form-control" value=title}}
+  </div>
+
+
+
+  <button class="btn btn-primary" {{action 'save'}}>Save</button>
+
+</form>
+
+{{else}}
+<button class="btn btn-primary" {{action 'edit'}}>Edit</button>
+<button class="btn btn-primary" {{action 'delete'}}>Delete</button>
+{{/if}}
+
+<a href='/' class="btn btn-primary" >Go Back to Questions</a>

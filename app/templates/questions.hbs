@@ -1,0 +1,21 @@
+<div id="allQuestionsInfo">
+  <h1 id='allquestionstitle'>List of All Questions</h1>
+
+  <div class="col-md-4">
+    <ul class="list-unstyled">
+      {{#each question in model}}
+      <li>
+        {{#link-to 'question' question.id}}
+        {{question.title}}<span class='muted'> by {{question.author}}</span>
+        {{/link-to}}
+      </li>
+      {{/each}}
+    </ul>
+    <p>{{#link-to 'new-question' classNames="btn btn-primary"}}Add a new question{{/link-to}}</p>
+
+  </div>
+
+  <div class="col-md-8">
+    {{outlet}}
+  </div>
+</div>

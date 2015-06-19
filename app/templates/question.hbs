@@ -1,0 +1,48 @@
+<h1>Question Details</h1>
+
+<div class="question-details">
+
+  <h2>Name of the Question: {{model.title}}</h2>
+  <h3 class='muted'>Submitted by: {{model.author}}</h3>
+
+
+<hr>
+
+<br>
+</div>
+
+{{#if isEditing}}
+<form>
+  <div class="form-group">
+    <label for="title">Question</label>
+    {{input id="title" class="form-control" value=title}}
+  </div>
+
+  <div class="form-group">
+    <label for="author">Name of person posting the question</label>
+    {{textarea id="author" class="form-control" value=author}}
+  </div>
+  <button class="btn btn-primary" {{action 'save'}}>Save</button>
+
+</form>
+<br>
+{{else}}
+<button class="btn btn-primary" {{action 'edit'}}>Edit</button>
+<button class="btn btn-primary" {{action 'delete'}}>Delete</button>
+{{/if}}
+
+<hr>
+
+<div id="commentSection">
+  <h3>All Comments</h3>
+  {{#each comment in model.comments}}
+  <li>
+    {{#link-to 'comment' comment.id}}
+      {{comment.title}}<span class='muted'> by {{comment.author}} - {{current-date}}</span>
+    {{/link-to}}
+
+  </li>
+  {{/each}}
+  {{#link-to 'comments' classNames="btn btn-primary"}}Add a Comment{{/link-to}}
+  {{outlet}}
+</div>
